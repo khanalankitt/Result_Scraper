@@ -8,12 +8,11 @@ driver = webdriver.Chrome()
 
 # List of symbol numbers to check
 symbol_numbers = [
-    '79011408', '79011409', '79011410', '79011412', '79011413', '79011415', '79011417', 
-    '79011419', '79011420', '79011421', '79011422', '79011424', '79011425', '79011426', 
-    '79011428', '79011429', '79011430', '79011431', '79011432', '79011433', '79011434',
-    '79011435', '79011436', '79011437', '79011438', '79011439', '79011441', '79011442', 
-    '79011443'
-]
+    '79011408', '79011410', '79011415', '79011417', '79011335',
+    '79011304', '79011306', '79011307', '79011308', '79011309', '79011310', '79011311',
+    '79011312', '79011313', '79011314', '79011315', '79011316', '79011318', '79011319',
+    '79011320', '79011321', '79011323', '79011324', '79011326', '79011328', '79011329',
+    '79011330', '79011331', '79011332', '79011333', '79011334']
 
 # URL of the result website
 url = "http://103.175.192.30:86/Result"
@@ -60,8 +59,7 @@ with open('result.txt', 'w') as file:
             result_span = driver.find_element(By.XPATH, "//table/tfoot/tr[2]/td[3]/span").text
 
             # Write the result to the file in the specified format
-            file.write(f'Name : {name} Symbol No : {symbol} GPA : {result_span}\n')
-            print(f'Name: {name}, Symbol: {symbol}, Result: {result_span}')
+            file.write(f'Name : {name} \nSymbol No : {symbol} \nGPA : {result_span}\n\n')
         except Exception as e:
             print(f'Error retrieving result for symbol {symbol}: {e}')
 
